@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Ctegory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -20,7 +19,8 @@ class DashboardPostController extends Controller
     public function index()
     {
         return view('dashboard.posts.index', [
-            'posts'=> Post::where('user_id', auth()->user()->id)->get()
+            // 'posts'=> Post::where('user_id', auth()->user()->id)->get()
+            'posts'=> Post::all()
         ]);
     }
 

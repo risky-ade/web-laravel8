@@ -15,7 +15,7 @@
         </li>
       </ul>
 
-      @can('admin')
+      {{-- @can('auth') --}}
       <h6 class="sidebar-heaading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
         <span>Administrator</span>
       </h6>
@@ -26,7 +26,13 @@
             Post Categories
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is ('dashboard/sliders*')? 'active' : '' }}" href="/dashboard/sliders">
+            <span data-feather="layout"></span>
+            Sliders
+          </a>
+        </li>
       </ul>
-      @endcan
+      {{-- @endcan --}}
     </div>
   </nav>

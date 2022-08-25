@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\SliderController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -43,6 +44,21 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/project', function () {
+    return view('project', [
+        "title" => "Project",
+        'active' => "project"
+    ]);
+});
+
+Route::get('/client', function () {
+    return view('client', [
+        "title" => "Client",
+        'active' => "client"
+    ]);
+});
+
+
 Route::get('/footer', function () {
     return view('footer', [
         "title" => "footer"
@@ -73,18 +89,21 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
 
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth','admin');
 
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth','can:admin');
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)-> except('show')->middleware('admin');
+Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)-> except('show')->middleware('auth');
+Route::resource('/dashboard/sliders',SliderController::class)->middleware('auth');
 
 
 

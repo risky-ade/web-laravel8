@@ -9,12 +9,12 @@
       </div>
     @endif
 
-    <div class="table-responsive col-lg-8">
+    <div class="table-responsive col-lg-10 mb-lg-4">
       <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table-sm table-bordered" id="datatables">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">No</th>
               <th scope="col">Title</th>
               <th scope="col">Category</th>
               <th scope="col">Action</th>

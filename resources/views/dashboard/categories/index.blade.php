@@ -8,7 +8,6 @@
         {{ session('success') }}
       </div>
     @endif
-
     <div class="table-responsive col-lg-6">
       <a href="/dashboard/categories/create" class="btn btn-primary mb-3">Create New Category</a>
         <table class="table table-striped table-sm">
@@ -25,7 +24,7 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $category->name }}</td>
               <td>
-                <a href="/dashboard/categories/{{ $category->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                {{-- <a href="/dashboard/categories/{{ $category->slug }}" class="badge bg-info"><span data-feather="eye"></span></a> --}}
                 <a href="/dashboard/categories/{{ $category->slug }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
 
                 <form action="/dashboard/categories/{{ $category->slug }}" method="post" class="d-inline">

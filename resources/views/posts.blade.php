@@ -1,7 +1,13 @@
 @extends('layouts.main')
-
 @section('container')
-<h1 class="mb-3 text-center">{{ $title }}</h1>
+
+<div class="breadcumbs mb-3">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between-align-items-center text-white">
+            <h2>{{ $title }}</h2>
+        </div>
+    </div>
+</div>
 
 <div class="row justify-content-center mb-3">
     <div class="col-md-6">
@@ -68,7 +74,7 @@
                                 @else
                                 <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
                                 @endif
-                    
+        
 
                     <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
@@ -91,7 +97,7 @@
     <p class="text-center fs-4">No Post Found.</p>
     @endif
 
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-center">
         {{ $posts->links() }}
     </div>
 
