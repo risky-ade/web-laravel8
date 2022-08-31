@@ -23,13 +23,19 @@
         <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/categories*')? 'active' : '' }}" href="/dashboard/categories">
             <span data-feather="grid"></span>
-            Post Categories
+            News Categories
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/sliders*')? 'active' : '' }}" href="/dashboard/sliders">
             <span data-feather="layout"></span>
             Sliders
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is ('dashboard/services*')? 'active' : '' }}" href="/dashboard/services">
+            <span data-feather="layers"></span>
+            Services
           </a>
         </li>
       </ul>

@@ -63,7 +63,38 @@
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam unde rem perspiciatis, id incidunt accusantium veritatis nostrum 
     </p>
     <div class="row mt-5">
-      <div class="col-md-4">
+      <div class="col-md-4 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/p8.jpg" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Portal Gate System</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/p1.jpg" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Hydrant System</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/p2.jpg" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Emergency Door</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+    
+      {{-- <div class="col-md-4">
         <div class="card border-0 text-center p-4">
           <div class="card-body">
             <div class="card-icon">
@@ -140,7 +171,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>

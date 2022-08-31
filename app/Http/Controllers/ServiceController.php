@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class SliderController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view('dashboard.sliders.index',[
-            'sliders'=> Slider::all()
+        return view('dashboard.services.index',[
+            'services'=> Service::all()
         ]);
-        
     }
 
     /**
@@ -28,7 +27,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('dashboard.sliders.create');
+        return view('dashboard.services.create');
     }
 
     /**
@@ -40,8 +39,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request -> validate([
-            'title'=>'required|max:255',
-            'description' => 'required',   
+            'title'=>'required|max:255',   
             'image' => 'image|file|max:5024',
         ]);
 
@@ -49,17 +47,17 @@ class SliderController extends Controller
             $validatedData['image']= $request->file('image')->store('post-images');
         }
 
-        Slider::create($validatedData);
-        return redirect('/dashboard/sliders')->with('success', 'Slider berhasil ditambahkan!');
+        Service::create($validatedData);
+        return redirect('/dashboard/services')->with('success', 'Service berhasil ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(Service $service)
     {
         //
     }
@@ -67,31 +65,28 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit(Service $service)
     {
-    //     if($slider->author->id !== auth()->user()->id) {
-    //         abort(403);
-    //    }
-        return view('dashboard.sliders.edit', [
-            'slider'=> $slider
+        return view('dashboard.services.edit', [
+            'service'=> $service
         ]);
+    
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, Service $service)
     {
         $validatedData = $request -> validate([
-            'title'=>'required|max:255',
-            'description' => 'required',   
+            'title'=>'required|max:255',   
             'image' => 'image|file|max:5024',
         ]);
 
@@ -103,25 +98,25 @@ class SliderController extends Controller
             $validatedData['image']= $request->file('image')->store('post-images');
         }
 
-        Slider::where('id', $slider->id)
+        Service::where('id', $service->id)
                 -> update($validatedData);
 
-        return redirect('/dashboard/sliders')->with('success', 'slider berhasil diupdate!');
+        return redirect('/dashboard/services')->with('success', 'service berhasil diupdate!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy(Service $service)
     {
-        if($slider->image){
-            Storage::delete($slider->image);
+        if($service->image){
+            Storage::delete($service->image);
         }
-        Slider::destroy($slider->id);
+        Service::destroy($service->id);
 
-        return redirect('/dashboard/sliders')->with('success', 'slider has been deleted!');
+        return redirect('/dashboard/services')->with('success', 'service berhasil dihapus!');
     }
 }

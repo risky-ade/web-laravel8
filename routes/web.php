@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SliderController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -104,6 +105,7 @@ Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, '
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)-> except('show')->middleware('auth');
 Route::resource('/dashboard/sliders',SliderController::class)->middleware('auth');
+Route::resource('/dashboard/services', ServiceController::class)->middleware('auth');
 
 
 
