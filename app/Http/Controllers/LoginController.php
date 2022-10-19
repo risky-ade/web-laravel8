@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
     public function index()
     {
-        return view('login.index', [
-            'title' => 'Login',
-            'active' => 'login'
-        ]);
+        // return view('login.index', [
+        //     'title' => 'Login',
+        //     'active' => 'login'
+        // ]);
+
+        $contact = Contact::query()->first();
+        $title = "Login";
+        $active = "login";
+        return view('login.index',compact('contact','title','active'));
     }
 
     public function authenticate(Request $request)

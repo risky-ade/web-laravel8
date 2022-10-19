@@ -22,7 +22,7 @@
 
         {{-- My style --}}
         <link rel="stylesheet" href="/css/style.css">
-        <title>sky news | {{ $title }}</title>
+        {{-- <title>CV.CMS | {{ $title }}</title> --}}
     </head>
     <body>
 
@@ -30,6 +30,7 @@
 
         <div class=" pt-5 mt-4">
             @yield('container')
+            {{-- {{ $data }} --}}
         </div>
 
     @include('partials.footers')

@@ -7,10 +7,9 @@
         </div>
     </div>
 </div>
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-          <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+    <div class="mb-4 bg-light rounded-3">
+        <div class="jumbotron">
+            <img class="jumbotron-img d-block w-100 d-flex" src="/img/fto4.jpg" alt="">
         </div>
       </div>
  {{-- About-Us --}}
@@ -19,34 +18,51 @@
       <div class="title-container">
       <h2 class="text-center fw-bold">ABOUT US</h2>
       </div>
-      <div class="row mt-5">
-        <div class="col-md-6">
+      <div class="row mt-5 justify-content-between">
+        <div class="col-md-5">
           <h3 class="fw-bold about-us-title">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            VISI
           </h3>
-          <p class="fw-bolder mt-4 about-us-subtitle">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt deserunt magni corporis iure placeat dicta, adipisci error ad autem amet ullam tenetur officiis a blanditiis facilis temporibus pariatur doloremque dolores?
+          <ul class="list-group list-group-flush">
+            <li class="fw-bolder list-group-item fs-5 opacity-75">
+              Menjadikan CV. Citra Mandiri Sukses selalu mendapatkan prioritas dari hati pelanggan seluruh Indonesia.
+            </li>
+          </ul>
+          <h3 class="fw-bold about-us-title">
+            MISI
+          </h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item fw-bolder fs-5 opacity-75"><i class="bi bi-check-all colours"></i>
+              Memberi kepuasan pelanggan sehingga tumbuh kepercayaan dan menjadi pelanggan setia.
+            </li>
+            <li class="list-group-item fw-bolder fs-5 opacity-75"><i class="bi bi-check-all colours"></i>
+              Memberikan Kepercayaan dengan berdasarkan Kualitas, Ketepatan, serta Harga yang kompetitive.
+            </li>
+          </ul>
+          <p class="fw-bolder mt-3 about-us-subtitle">
+            
+            
           </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, vero ipsum. Odit, fugiat quos delectus natus excepturi cum ipsum vel, iste explicabo asperiores alias, tenetur nesciunt quibusdam voluptates. Exercitationem, harum.
+            Secara khusus kami mengkonsentrasikan perusahaan kami pada bidang usaha yang meliputi :
           </p>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><i class="bi bi-check-all colours"></i>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Pelaksana Konstruksi
             </li>
             <li class="list-group-item"><i class="bi bi-check-all colours"></i>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Pembangunan Bangunan Baru
             </li>
             <li class="list-group-item"><i class="bi bi-check-all colours"></i>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Mechanical dan Electrical
             </li>
             <li class="list-group-item"><i class="bi bi-check-all colours"></i>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perawatan Gedung
             </li>
           </ul>
-          <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic vitae consequatur ut modi nostrum obcaecati officiis aut! Sapiente repellat fugit assumenda ipsa, doloribus impedit reiciendis quia, harum vel, suscipit eius?</p>
+          
         </div>
       </div>
     </div>

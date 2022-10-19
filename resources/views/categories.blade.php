@@ -4,7 +4,7 @@
     <div class="breadcumbs mb-3">
         <div class="container-fluid">
             <div class="d-flex justify-content-between-align-items-center text-white">
-                <h2>Post Categories</h2>
+                <h2>Article Categories</h2>
             </div>
         </div>
     </div>

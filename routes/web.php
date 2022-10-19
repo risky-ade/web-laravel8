@@ -1,16 +1,24 @@
 <?php
 
-use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AboutController;
+use App\Models\Contact;
+use App\Models\Service;
 use App\Models\Category;
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+
+use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardClientController;
+use App\Http\Controllers\DashboardSliderController;
+use App\Http\Controllers\DashboardContactController;
+use App\Http\Controllers\DashboardProjectController;
+use App\Http\Controllers\DashboardServiceController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\SliderController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,26 +39,17 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/home', function () {
-    return view('home', [
-        "title" => "Home",
-        'active' => "home"
-    ]);
-});
-
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About",
-        'active' => "about"
-    ]);
-});
-
-Route::get('/project', function () {
-    return view('project', [
-        "title" => "Project",
-        'active' => "project"
-    ]);
-});
+// Route::get('/home', function () {
+//     return view('home', [
+//         "title" => "Home",
+//         'active' => "home",
+//         'services' => Service::all(),
+//     ]);
+// });
+Route::get('/home',[HomeController::class, 'index']);
+Route::get('/about',[AboutController::class, 'index']);
+Route::get('/project',[ProjectController::class, 'index']);
+Route::get('/client',[ProjectController::class, 'index']);
 
 Route::get('/client', function () {
     return view('client', [
@@ -60,17 +59,13 @@ Route::get('/client', function () {
 });
 
 
-Route::get('/footer', function () {
-    return view('footer', [
-        "title" => "footer"
-    ]);
-});
+// Route::get('/', function () {
+//     return view('footers',[
+//         'footers'=> Contact::first()
+//     ]);
+// });
 
-Route::get('/test', function () {
-    return view('test', [
-        "title" => "test"
-    ]);
-});
+
 
 Route::get('/posts', [PostController::class, 'index']);               // sebelumnya ('/blog', function ()
 //halaman single post
@@ -86,26 +81,37 @@ Route::get('/categories', function () {
 
 });
 
+
+
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
+Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/partials/footers', [ContactController::class, 'index']);
+Route::get('/partials/footers', [ContactController::class, 'show']);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
 
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth','admin');
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth','can:admin');
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)-> except('show')->middleware('auth');
-Route::resource('/dashboard/sliders',SliderController::class)->middleware('auth');
-Route::resource('/dashboard/services', ServiceController::class)->middleware('auth');
+Route::resource('/dashboard/sliders',DashboardSliderController::class)->middleware('auth');
+Route::resource('/dashboard/services', DashboardServiceController::class)-> except('show')->middleware('auth');
+Route::resource('/dashboard/projects', DashboardProjectController::class)->middleware('auth');
+Route::resource('/dashboard/abouts', DashboardAboutController::class)->middleware('auth');
+Route::resource('/dashboard/clients', DashboardClientController::class)->middleware('auth');
+
+Route::get('/dashboard/contact', [DashboardContactController::class, 'index'])->middleware('auth');
+Route::put('/dashboard/contact/{id}', [DashboardContactController::class, 'update'])->middleware('auth');
 
 
 

@@ -55,41 +55,45 @@
                     <li class="list-item mb-2">
                         <a href="/posts" class="list-link  {{ ($active === "posts") ? 'active' : " " }} text-decoration-none">
                             <i class="fa fa-chevron-right"></i>
-                            News
+                            Article
                         </a>
                     </li>
                 </ul>
             </div>
+            
             <div class="col-md-5">
                 <h3 class="fw-bold pb-2">Head Office Surabaya</h3>
+                
                 <ul class="list-group list-unstyled mt-2">
                     <li class="list-item mb-2">
-                        <a href="/" class="list-link text-decoration-none fs-5">
+                        <a class="list-link text-decoration-none fs-5">
                             <i class="fa-solid fa-location-dot px-2"></i>
-                             Surabaya
+                            {{$contact->alamat}}
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/" class="list-link text-decoration-none fs-5">
+                        <a class="list-link text-decoration-none fs-5">
                             <i class="fa-solid fa-phone px-2"></i>
-                            {{ " (031)12345" }}
+                            {{-- {{ $contact->telepon }} --}}0800698699
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/" class="list-link text-decoration-none fs-5">
+                        <a  class="list-link text-decoration-none fs-5">
                             <i class="fa-solid fa-mobile-screen-button px-2"></i>
-                             +62 856 0466 1302
+                            {{-- {{ $contact->nomorhp }} --}}9698599707
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/" class="list-link text-decoration-none fs-5">
+                        <a  class="list-link text-decoration-none fs-5">
                             <i class="fa-solid fa-envelope px-2"></i>
-                             cmskontraktor@gmail.com
+                            {{-- {{  $contact->email  }} --}}kvikkch,vc
                         </a>
                     </li>
                 </ul>
+      
             </div>
         </div>
+        
         <div class="copyright-content">
             <div class="row align-items-center">
                 <div class="col-lg-10">

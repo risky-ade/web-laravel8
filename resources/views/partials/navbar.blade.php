@@ -7,6 +7,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          {{-- {{ $active }} --}}
             <li class="nav-item fs-6">
             <a class="nav-link {{ ($active === "home") ? 'active' : " " }}"  href="/home">Home</a>
             </li>
@@ -20,7 +21,7 @@
                 <a class="nav-link {{ ($active === "client") ? 'active' : " " }}" href="/client">Client</a>
             </li>
             <li class="nav-item fs-6">
-            <a class="nav-link {{ ($active === "posts") ? 'active' : " " }}" href="/posts">News</a>
+            <a class="nav-link {{ ($active === "posts") ? 'active' : " " }}" href="/posts">Article</a>
             </li>
             <li class="nav-item fs-6">
             <a class="nav-link {{ ($active === "categories") ? 'active' : " " }}" href="/categories">Categories</a>

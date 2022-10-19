@@ -50,16 +50,20 @@
 } */
 .carousel-img{
     width: auto;
-    height: 500px;
+    height: 350px;
     object-fit: cover;
     border-radius: 1px;
 }
 
 .carousel-caption{
-    
     border-top: 10px solid #ff0d01;
     background-color: #0000009e;
     height: 120px;
+}
+.jumbotron img{
+    width: auto;
+    height: 350px;
+    object-fit: cover;
 }
 
 .title-container h2::after{
@@ -88,7 +92,12 @@
 
 .category-item div img{
     width: auto;
-    height: 300px;
+    height: 250px;
+    object-fit: cover;
+  }
+.card-category-item img{
+    width: auto;
+    height: 200px;
     object-fit: cover;
   }
 

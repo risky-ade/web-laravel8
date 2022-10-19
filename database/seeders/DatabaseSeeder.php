@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Contact;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,6 +26,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'riskyadesucahyo@gmail.com',
             'password' => bcrypt('12345'),
             
+        ]);
+
+        Contact::create([
+            'name' => 'CV. Citra Mandiri Sukses',
+            'alamat' => 'Sukolilo-Surabaya',
+            'telepon' => '(031)59174190',
+            'nomorhp' => '+62 817 0391 8496',
+            'email' => 'cmskontraktor@gmail.com'
         ]);
 
         //  User::create([

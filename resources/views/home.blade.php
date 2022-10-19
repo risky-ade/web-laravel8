@@ -6,6 +6,7 @@
         <div class="container-fluid">
             <div class="d-flex justify-content-between-align-items-center text-white">
                 <h2>Home</h2>
+                {{-- {{ $data }} --}}
             </div>
         </div>
     </div>
@@ -20,8 +21,8 @@
           <div class="carousel-item active" >
             <img src="/img/fto1.jpg" class="d-block w-100 d-flex carousel-img" alt="...">
             <div class="carousel-caption d-fluid d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5>CV. CITRA MANDIRI SUKSES</h5>
+              <p>Our Team Has More Experience In General Construction Field For More Than 4 Years</p>
             </div>
           </div>
           <div class="carousel-item">
@@ -48,7 +49,9 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+   
   </section>
+
   {{-- end carousel --}}
   
 
@@ -57,38 +60,81 @@
 <div class="services mt-2 bg-light py-5">
   <div class="container">
     <div class="title-container">
-      <h2 class="text-center fw-bold">SERVICES</h2>
+      <h2 class="text-center fw-bold">OUR SCOPE</h2>
     </div>
-    <p class="text-center mt-4">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam unde rem perspiciatis, id incidunt accusantium veritatis nostrum 
-    </p>
-    <div class="row mt-5">
+    {{-- <p class="text-center mt-4 fs-5">
+      General Construction & Material Supply
+    </p> --}}
+    <div class="row mt-4">
+
+      {{-- @foreach($services as $service)
       <div class="col-md-4 mt-4 ">
         <div class="category-item">
             <div class="card bg-dark text-white border-0">
-            <img src="/img/p8.jpg" class="card-img" alt="">
+            <img src="{{ $service->image }}" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">{{ $service->title }}</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+      @endforeach --}}
+      <div class="col-md-3 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/img3.jpg" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Drainase System</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/img2.jpg" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Emergency Door</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/img1.jpg" class="card-img" alt="">
             <div class="card-img-overlay d-flex align-items-center p-0">
                 <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Portal Gate System</h5>
             </div>
             </div>
         </div>
       </div>
-      <div class="col-md-4 mt-4 ">
+      <div class="col-md-3 mt-4 ">
         <div class="category-item">
             <div class="card bg-dark text-white border-0">
-            <img src="/img/p1.jpg" class="card-img" alt="">
+            <img src="/img/img4.jpg" class="card-img" alt="">
             <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Hydrant System</h5>
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Kanopi</h5>
             </div>
             </div>
         </div>
       </div>
-      <div class="col-md-4 mt-4 ">
+      <div class="col-md-3 mt-4 ">
         <div class="category-item">
             <div class="card bg-dark text-white border-0">
-            <img src="/img/p2.jpg" class="card-img" alt="">
+            <img src="/img/img5.jpg" class="card-img" alt="">
             <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Emergency Door</h5>
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Sliding Gate</h5>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3 mt-4 ">
+        <div class="category-item">
+            <div class="card bg-dark text-white border-0">
+            <img src="/img/img6.jpg" class="card-img" alt="">
+            <div class="card-img-overlay d-flex align-items-center p-0">
+                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Ruko Building</h5>
             </div>
             </div>
         </div>
@@ -176,7 +222,6 @@
   </div>
 </div>
 {{-- end service --}}
-
 
 @endsection
 
