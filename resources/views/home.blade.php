@@ -67,19 +67,30 @@
     </p> --}}
     <div class="row mt-4">
 
-      {{-- @foreach($services as $service)
-      <div class="col-md-4 mt-4 ">
+      @foreach($services as $service)
+      <div class="col-md-4 mt-4 mb-4">
         <div class="category-item">
             <div class="card bg-dark text-white border-0">
-            <img src="{{ $service->image }}" class="card-img" alt="">
+              
+            @if($service->image)
+              <img src="{{ asset('storage/' . $service->image) }}" class="card-img" alt="">
+            @else
+              <img src="/img/blank_img.png" class="card-img-top" alt="#">
+            @endif
+
             <div class="card-img-overlay d-flex align-items-center p-0">
                 <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">{{ $service->title }}</h5>
             </div>
             </div>
         </div>
       </div>
-      @endforeach --}}
-      <div class="col-md-3 mt-4 ">
+
+      @endforeach
+      <div class="d-flex justify-content-center">
+        {{ $services->Links() }}
+    </div>
+
+      {{-- <div class="col-md-3 mt-4 ">
         <div class="category-item">
             <div class="card bg-dark text-white border-0">
             <img src="/img/img3.jpg" class="card-img" alt="">
@@ -138,7 +149,7 @@
             </div>
             </div>
         </div>
-      </div>
+      </div> --}}
     
       {{-- <div class="col-md-4">
         <div class="card border-0 text-center p-4">

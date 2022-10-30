@@ -117,7 +117,7 @@ class DashboardPostController extends Controller
         if($request->slug != $post->slug){
             $reules['slug'] = 'required|unique:posts';
         }
-
+ 
         $validatedData = $request->validate($rules);
 
          // validasi jika image kosong sc dibawah tidak dijalankan, tapi kalau ada isinya akan ke upload ke post-image dan ke insert ke database

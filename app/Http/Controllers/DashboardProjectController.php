@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Client;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class DashboardProjectController extends Controller
@@ -24,7 +26,10 @@ class DashboardProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.projects.create',[
+            'clients'=> Client::all(),
+            'services'=> Service::all()
+        ]);
     }
 
     /**

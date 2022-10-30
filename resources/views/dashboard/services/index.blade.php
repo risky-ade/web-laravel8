@@ -27,7 +27,12 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $service->title }}</td>
                         <td>
-                            <img src="/storage/{{ $service->image }}" alt="" class="img-fluid" width="90">
+                            @if($service->image)
+                            <img src="{{ asset('storage/' . $service->image) }}" class="img-fluid" width="90" alt="">
+                          @else
+                            <img src="/img/blank_img.png" class="img-fluid" width="90" alt="#">
+                          @endif
+                            {{-- <img src="/storage/{{ $service->image }}" alt="" class="img-fluid" width="90"> --}}
                         </td>
                         <td>
                             <a href="/dashboard/services/{{ $service->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>

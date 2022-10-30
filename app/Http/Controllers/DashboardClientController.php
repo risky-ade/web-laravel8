@@ -14,7 +14,9 @@ class DashboardClientController extends Controller
      */
     public function index()
     {
-        return view('dashboard.clients.index');
+        return view('dashboard.clients.index',[
+            'clients'=> Client::all()
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class DashboardClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.clients.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class DashboardClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request -> validate([
+            'name'=>'required|max:255',
+            'description' => 'required'
+        ]);
+        
+        Client::create($validatedData);
+
+        return redirect('/dashboard/clients')->with('success', 'New Client has been added!');
     }
 
     /**
@@ -57,7 +66,9 @@ class DashboardClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('dashboard.clients.edit',[
+            'client'=>$client
+        ]);
     }
 
     /**
@@ -69,7 +80,15 @@ class DashboardClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $validatedData = $request -> validate([
+            'name'=>'required|max:255',
+            'description' => 'required'
+        ]);
+      
+
+        Client::where('id',$client->id)->update($validatedData);
+
+        return redirect('/dashboard/clients')->with('success', 'Client has been update!');
     }
 
     /**
@@ -80,6 +99,8 @@ class DashboardClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        Client::destroy($client->id);
+
+        return redirect('/dashboard/clients')->with('success', 'Client has been deleted!');
     }
 }

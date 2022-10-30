@@ -1,12 +1,8 @@
-/* footer {
-    background-color: #e2edff;
-} */
+
 .colours{
     color: #df1409;
 }
-/* body{
-    color: #df1409;
-} */
+
 
 .form-signin .form-floating:focus-within {
     z-index: 2;
@@ -44,10 +40,7 @@
 .active{
     color: #df1409 !important;
 }
-/*  */
-/* .jumbotron{
-    background-color: #ffcdcdd7;
-} */
+
 .carousel-img{
     width: auto;
     height: 350px;
@@ -82,17 +75,11 @@
 .about-us-subtitle{
     font: 1.2em sans-serif;
 }
-/* Footer */
-/* .footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-    margin-top: 20px;
-  } */
+
 
 .category-item div img{
     width: auto;
-    height: 250px;
+    height: 210px;
     object-fit: cover;
   }
 .card-category-item img{

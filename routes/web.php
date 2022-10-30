@@ -15,6 +15,8 @@ use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardProjectController;
 use App\Http\Controllers\DashboardServiceController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\HomeController;
@@ -32,56 +34,16 @@ use App\Http\Controllers\ProjectController;
 */
 
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home",
-        'active' => "home"
-    ]);
-});
-
-// Route::get('/home', function () {
-//     return view('home', [
-//         "title" => "Home",
-//         'active' => "home",
-//         'services' => Service::all(),
-//     ]);
-// });
+Route::get('/',[HomeController::class, 'index']);
 Route::get('/home',[HomeController::class, 'index']);
 Route::get('/about',[AboutController::class, 'index']);
 Route::get('/project',[ProjectController::class, 'index']);
-Route::get('/client',[ProjectController::class, 'index']);
-
-Route::get('/client', function () {
-    return view('client', [
-        "title" => "Client",
-        'active' => "client"
-    ]);
-});
-
-
-// Route::get('/', function () {
-//     return view('footers',[
-//         'footers'=> Contact::first()
-//     ]);
-// });
-
-
+Route::get('/client',[ClientController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);               // sebelumnya ('/blog', function ()
 //halaman single post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);                //sebelumnya ('blog/{slug}', function ($slug)
-
-Route::get('/categories', function () {
-    return view('categories', [
-        'title' => 'Post Categories',
-        'active' => 'categories',
-        'categories' => Category::all(),
-
-    ]);
-
-});
-
-
+Route::get('/categories', [CategoryController::class, 'index']);        
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

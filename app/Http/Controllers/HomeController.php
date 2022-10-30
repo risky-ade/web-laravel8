@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Contact;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -9,10 +10,10 @@ class HomeController extends Controller
     public function index()
     {
       $contact = Contact::query()->first();
-    //   $service
+      $services = Service::latest()->paginate(6);
       $title = "Home";
       $active = "home";
-      return view('home',compact('contact','title','active'));
+      return view('home',compact('contact','services','title','active'));
 
     }
 

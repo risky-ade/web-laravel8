@@ -22,7 +22,7 @@
 
         {{-- My style --}}
         <link rel="stylesheet" href="/css/style.css">
-        {{-- <title>CV.CMS | {{ $title }}</title> --}}
+        <title>CV.CMS | {{ $title }}</title>
     </head>
     <body>
 
