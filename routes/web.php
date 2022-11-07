@@ -1,26 +1,25 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Models\Contact;
-use App\Models\Service;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 
-use App\Http\Controllers\DashboardAboutController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardClientController;
 use App\Http\Controllers\DashboardSliderController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardProjectController;
 use App\Http\Controllers\DashboardServiceController;
-use App\Http\Controllers\AdminCategoryController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +32,13 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('auth');
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/',[HomeController::class, 'index']);
 Route::get('/home',[HomeController::class, 'index']);
@@ -43,15 +49,7 @@ Route::get('/client',[ClientController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);               // sebelumnya ('/blog', function ()
 //halaman single post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);                //sebelumnya ('blog/{slug}', function ($slug)
-Route::get('/categories', [CategoryController::class, 'index']);        
-
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
-
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store']);
-
+Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/partials/footers', [ContactController::class, 'index']);
 Route::get('/partials/footers', [ContactController::class, 'show']);
 

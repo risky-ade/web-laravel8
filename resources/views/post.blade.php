@@ -28,7 +28,7 @@
 
             </article>
 
-        <a href="/posts" class="d-block mt-3">Back to Blog</a>
+        <a href="/posts" class="d-block mt-3">Back to all article</a>
 
 
     </div>

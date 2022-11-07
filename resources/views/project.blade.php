@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 <div class="breadcumbs mb-3">
-    <div class="container-fluid">
+    <div class="container-fluid pt-1">
         <div class="d-flex justify-content-between-align-items-center text-white">
             <h2>Project</h2>
         </div>
@@ -23,7 +23,7 @@
           <div class="card h-100 card-category-item">
             <img src="/img/img1.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">ITS,Portal Gate Automatic</h5>
+              <a href=""><h5 class="card-title text-center">ITS,Portal Gate Automatic</h5></a>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
           </div>

@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Contact;
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
     public function index()
     {
-        return view('register.index',[
-            'title' => 'Register',
-            'active' => 'register'
-        ]);
+        // return view('register.index',[
+        //     'title' => 'Register'
+        // ]);
+        $contact = Contact::query()->first();
+        $title = "Register";
+        $active = "register";
+        return view('register.index',compact('contact','title','active'));
     }
 
     public function store(Request $request)

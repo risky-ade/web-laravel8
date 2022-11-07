@@ -2,7 +2,7 @@
 @section('container')
 
 <div class="breadcumbs mb-3">
-    <div class="container-fluid">
+    <div class="container-fluid pt-1">
         <div class="d-flex justify-content-between-align-items-center text-white">
             <h2>{{ $title }}</h2>
         </div>

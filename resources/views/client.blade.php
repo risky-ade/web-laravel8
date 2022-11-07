@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <div class="breadcumbs mb-3">
-        <div class="container-fluid">
+        <div class="container-fluid pt-1">
             <div class="d-flex justify-content-between-align-items-center text-white">
                 <h2>Client</h2>
             </div>
@@ -17,7 +17,7 @@
       <h2 class="text-center fw-bold">OUR CLIENT</h2>
     </div>
 
-      <div class="col-md-8 container">
+      <div class="table-responsive col-md-8 container">
       <table class="table table-striped table-hover table-bordered" id="datatables">
         <thead>
             <tr>

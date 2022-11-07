@@ -25,7 +25,7 @@ class PostController extends Controller
             $title = ' by ' . $author->name;
         }
         // $posts = Post::latest();
-
+        
         // $contact = Contact::first();
 
         return view('posts', [
@@ -34,7 +34,7 @@ class PostController extends Controller
             // "posts" => Post::all()
             "posts" => Post::latest()->filter(request(['search', 'category', 'author']))
             ->paginate(7)->withQueryString(),       //Note : old ->get()
-            "contact" => Contact::first()
+            "contact" => Contact::query()->first()
             // "posts" => $posts->get()     //dilakukan query disini
         ]);
 
@@ -54,7 +54,8 @@ class PostController extends Controller
         return view('post', [
             "title" => "Single Post",
             "active" => 'posts',
-            "post" => $post                      //sebelumnya pakai cari sesuai slug//Post::find($slug)
+            "post" => $post,                      //sebelumnya pakai cari sesuai slug//Post::find($slug)
+            "contact" => Contact::query()->first()
         ]);
         
     }

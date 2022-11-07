@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-      $contact = Contact::query()->first();
       $services = Service::latest()->paginate(6);
+      $contact = Contact::query()->first();
       $title = "Home";
       $active = "home";
       return view('home',compact('contact','services','title','active'));

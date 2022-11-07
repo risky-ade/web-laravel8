@@ -1,15 +1,12 @@
 @extends('layouts.main')
-@section('container')
-<section>
-    
-    <div class="breadcumbs mb-3">
-        <div class="container-fluid">
-            <div class="d-flex justify-content-between-align-items-center text-white">
-                <h2>Home</h2>
-                {{-- {{ $data }} --}}
-            </div>
-        </div>
-    </div>
+@section('container') 
+<div class="breadcumbs mb-3">
+  <div class="container-fluid pt-1">
+      <div class="d-flex justify-content-between-align-items-center text-white">
+          <h2>Home</h2>
+      </div>
+  </div>
+</div>
      {{-- carousel --}}
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
@@ -22,7 +19,7 @@
             <img src="/img/fto1.jpg" class="d-block w-100 d-flex carousel-img" alt="...">
             <div class="carousel-caption d-fluid d-md-block">
               <h5>CV. CITRA MANDIRI SUKSES</h5>
-              <p>Our Team Has More Experience In General Construction Field For More Than 4 Years</p>
+              <p>Our Team Has More Experience In General Construction Field</p>
             </div>
           </div>
           <div class="carousel-item">
@@ -50,23 +47,20 @@
         </button>
       </div>
    
-  </section>
+
 
   {{-- end carousel --}}
   
 
 
 {{-- service --}}
-<div class="services mt-2 bg-light py-5">
+<div class="services mt-2  py-5">
   <div class="container">
     <div class="title-container">
       <h2 class="text-center fw-bold">OUR SCOPE</h2>
     </div>
-    {{-- <p class="text-center mt-4 fs-5">
-      General Construction & Material Supply
-    </p> --}}
-    <div class="row mt-4">
 
+    <div class="row mt-4">
       @foreach($services as $service)
       <div class="col-md-4 mt-4 mb-4">
         <div class="category-item">
@@ -84,153 +78,15 @@
             </div>
         </div>
       </div>
-
       @endforeach
-      <div class="d-flex justify-content-center">
-        {{ $services->Links() }}
-    </div>
 
-      {{-- <div class="col-md-3 mt-4 ">
-        <div class="category-item">
-            <div class="card bg-dark text-white border-0">
-            <img src="/img/img3.jpg" class="card-img" alt="">
-            <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Drainase System</h5>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 mt-4 ">
-        <div class="category-item">
-            <div class="card bg-dark text-white border-0">
-            <img src="/img/img2.jpg" class="card-img" alt="">
-            <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Emergency Door</h5>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 mt-4 ">
-        <div class="category-item">
-            <div class="card bg-dark text-white border-0">
-            <img src="/img/img1.jpg" class="card-img" alt="">
-            <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Portal Gate System</h5>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 mt-4 ">
-        <div class="category-item">
-            <div class="card bg-dark text-white border-0">
-            <img src="/img/img4.jpg" class="card-img" alt="">
-            <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Kanopi</h5>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 mt-4 ">
-        <div class="category-item">
-            <div class="card bg-dark text-white border-0">
-            <img src="/img/img5.jpg" class="card-img" alt="">
-            <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Sliding Gate</h5>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-3 mt-4 ">
-        <div class="category-item">
-            <div class="card bg-dark text-white border-0">
-            <img src="/img/img6.jpg" class="card-img" alt="">
-            <div class="card-img-overlay d-flex align-items-center p-0">
-                <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(5, 5, 5, 0.37)">Ruko Building</h5>
-            </div>
-            </div>
-        </div>
-      </div> --}}
-    
-      {{-- <div class="col-md-4">
-        <div class="card border-0 text-center p-4">
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fa fa-book fa-3x"></i>
-            </div>
-            <div class="card-title mt-3">Lorem ipsum</div>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, libero dolore voluptatibus maiores repudiandae omnis similique, sed cupiditate iste assumenda soluta ut veritatis quod enim repellendus cum magni autem impedit?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 text-center p-4">
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fa fa-book fa-3x"></i>
-            </div>
-            <div class="card-title mt-3">Lorem ipsum</div>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, libero dolore voluptatibus maiores repudiandae omnis similique, sed cupiditate iste assumenda soluta ut veritatis quod enim repellendus cum magni autem impedit?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 text-center p-4">
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fa fa-book fa-3x"></i>
-            </div>
-            <div class="card-title mt-3">Lorem ipsum</div>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, libero dolore voluptatibus maiores repudiandae omnis similique, sed cupiditate iste assumenda soluta ut veritatis quod enim repellendus cum magni autem impedit?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 text-center p-4 mt-3">
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fa fa-book fa-3x"></i>
-            </div>
-            <div class="card-title mt-3">Lorem ipsum</div>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, libero dolore voluptatibus maiores repudiandae omnis similique, sed cupiditate iste assumenda soluta ut veritatis quod enim repellendus cum magni autem impedit?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 text-center p-4 mt-3">
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fa fa-book fa-3x"></i>
-            </div>
-            <div class="card-title mt-3">Lorem ipsum</div>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, libero dolore voluptatibus maiores repudiandae omnis similique, sed cupiditate iste assumenda soluta ut veritatis quod enim repellendus cum magni autem impedit?
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 text-center p-4 mt-3">
-          <div class="card-body">
-            <div class="card-icon">
-              <i class="fa fa-book fa-3x"></i>
-            </div>
-            <div class="card-title mt-3">Lorem ipsum</div>
-            <p class="card-description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius, libero dolore voluptatibus maiores repudiandae omnis similique, sed cupiditate iste assumenda soluta ut veritatis quod enim repellendus cum magni autem impedit?
-            </p>
-          </div>
-        </div>
-      </div> --}}
+     
+
     </div>
   </div>
+  <div class="d-flex justify-content-center">
+    {{ $services->links() }}
+</div>
 </div>
 {{-- end service --}}
 

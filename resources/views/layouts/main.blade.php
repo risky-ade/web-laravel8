@@ -11,7 +11,11 @@
 
         {{-- fontawsome --}}
         <link rel="stylesheet" href="/fontawesome/css/all.min.css">
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+        {{-- icon materialize --}}
+        {{-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
         {{-- Bootstrap icons --}}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         
@@ -28,25 +32,26 @@
 
     @include('partials.navbar')
 
-        <div class=" pt-5 mt-4">
+        <div class="body-content">
             @yield('container')
             {{-- {{ $data }} --}}
         </div>
 
     @include('partials.footers')
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="/fontawesome/js/all.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.12.1/datatables.min.js"></script>
+    <script  src="js/script.js"></script>
 
     <script type="text/javascript" >
         $(document).ready( function () {
             $('#datatables').DataTable();
         } );
         </script>
-
     </body>
 
 </html>
