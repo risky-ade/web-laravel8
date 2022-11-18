@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\Client;
+use App\Models\Image;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class DashboardProjectController extends Controller
      */
     public function index()
     {
-        return view('dashboard.projects.index');
+        return view('dashboard.projects.index',[
+            'projects'=> Project::all()
+        ]);
     }
 
     /**
@@ -28,7 +31,7 @@ class DashboardProjectController extends Controller
     {
         return view('dashboard.projects.create',[
             'clients'=> Client::all(),
-            'services'=> Service::all()
+            'services'=> Service::all(),
         ]);
     }
 
@@ -40,8 +43,43 @@ class DashboardProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = $request ->validate([
+            'title'=>'required',
+            'client_id'=>'required',
+            'service_id'=>'required',
+            'date'=>'required',
+            'alamat'=>'required',
+            'deskripsi'=>'required'
+        ]);
+
+        // if($request->file('image')){
+        //     $data['image']= $request->file('image')->store('post-images');
+        // }
+
+        $new_project = Project::create($data);
+
+        if($request->hasFile('images')){
+            foreach($request->file('images') as $image)
+            {
+                $imageName = $data['title'].'-image-'.time().rand(1,1000).'.'.$image->extension();
+                $image->move(public_path('project_img'),$imageName);
+                Image::create([
+                    'project_id'=>$new_project->id,
+                    'image'=>$imageName
+                    
+                ]);
+            }
+        }
+        return back()->with('Berhasil','Ditambahkan');
     }
+
+    // public function images($id){
+    //     $project = Project::find($id);
+    //     if(!$project) abort(404);
+    //     $images = $project->images;
+    //     return view('images',compact('project','images'));
+    // }
 
     /**
      * Display the specified resource.

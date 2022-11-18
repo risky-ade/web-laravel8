@@ -73,6 +73,9 @@ Route::resource('/dashboard/clients', DashboardClientController::class)->middlew
 Route::get('/dashboard/contact', [DashboardContactController::class, 'index'])->middleware('auth');
 Route::put('/dashboard/contact/{id}', [DashboardContactController::class, 'update'])->middleware('auth');
 
+// Route::get('/dashboard/projects', [DashboardProjectController::class, 'index'])->middleware('auth');
+// Route::get('/dashboard/projects/create', [DashboardProjectController::class, 'create'])->middleware('auth');
+// Route::post('/dashboard/projects', [DashboardProjectController::class, 'store'])->middleware('auth');
 
 
 

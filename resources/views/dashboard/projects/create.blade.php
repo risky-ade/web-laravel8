@@ -5,24 +5,22 @@
     </div>
 
     <div class="container">
-        <div class="table-responsive">
             <a href="/dashboard/projects" class="btn btn-primary mb-3">Kembali</a>
-            <div class="row">
                 <div class="col-md-6">
-                    <form method="POST" action="/dashboard/projects" enctype="multipart/form-data">
+                    <form method="post" action="/dashboard/projects" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="">Nama Proyek</label>
-                            <input type="text" class="form-control mt-2" @error('name') is-invalid @enderror id="name" name="name" required autofocus value="{{ old('name') }}" placeholder="Nama">
-                            @error('name')
+                            <input type="text" class="form-control mt-2" @error('title') is-invalid @enderror id="title" name="title" required autofocus value="{{ old('title') }}" placeholder="title">
+                            @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Nama Client</label>
-                            <select class="form-select" name="service_id">
+                            <label for="name" class="form-label">Nama Client</label>
+                            <select class="form-select" name="client_id">
                               @foreach ($clients as $client)
                                 @if(old('client_id')== $client->id )
                                   <option value="{{ $client->id }}" selected >{{ $client->name }}</option>
@@ -33,7 +31,7 @@
                             </select>
                           </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Scope</label>
+                            <label for="title" class="form-label">Scope</label>
                             <select class="form-select" name="service_id">
                               @foreach ($services as $service)
                                 @if(old('service_id')== $service->id )
@@ -44,10 +42,21 @@
                               @endforeach
                             </select>
                           </div>
-                        </div>
-                        <div class="col-md-6">
+
+                          <div class="mb-3">
+                            <label for="files" class="form-label">Project Image</label>
+                            <img class="img-preview img-fluid mb-3 col-sm-5">
+                            <input class="form-control @error('image') is-invalid @enderror" accept="image/*" multiple type="file"  name="image[]" onchange="previewImage()">
+
+                            @error('image')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror 
+                          </div>
+
                         <div class="form-group mb-3">
-                            <label for="">Tanggal Proyek Selesai</label>
+                            <label for="date">Tanggal Proyek Selesai</label>
                             <input type="date" class="form-control mt-2">
                             @error('date')
                                 <div class="invalid-feedback">
@@ -56,29 +65,43 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="">Alamat Proyek</label>
-                            <input type="text" class="form-control mt-2" @error('description') is-invalid @enderror id="description" name="description" required autofocus value="{{ old('description') }}" placeholder="Deskripsi">
-                            @error('description')
+                            <label for="alamat">Alamat Proyek</label>
+                            <input type="text" class="form-control mt-2" @error('alamat') is-invalid @enderror id="alamat" name="alamat" required autofocus value="{{ old('alamat') }}" placeholder="Alamat">
+                            @error('alamat')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="">Deskripsi</label>
-                            <input type="text" class="form-control mt-2" @error('description') is-invalid @enderror id="description" name="description" required autofocus value="{{ old('description') }}" placeholder="Deskripsi">
-                            @error('description')
+                            <label for="deskripsi">Deskripsi</label>
+                            <input type="text" class="form-control mt-2" @error('deskripsi') is-invalid @enderror id="deskripsi" name="deskripsi" required autofocus value="{{ old('deskripsi') }}" placeholder="Deskripsi">
+                            @error('deskripsi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-                        <div class="justify-content-end">
-                        <button type="submit" class="btn btn-primary mb-4 justify-content-center">Submit</button>
-                        </div>
+                        
+                        <button type="submit" class="btn btn-primary mb-4 ">Submit</button>
                     </form>
-                </div>
             </div>
-        </div>
     </div>
+
+
+    <script>
+         function previewImage(){
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview')
+            
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 @endsection

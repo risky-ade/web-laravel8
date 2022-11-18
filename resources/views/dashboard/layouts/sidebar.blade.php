@@ -26,24 +26,24 @@
             Article Categories
           </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/sliders*')? 'active' : '' }}" href="/dashboard/sliders">
             <span data-feather="layout"></span>
             Sliders
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/services*')? 'active' : '' }}" href="/dashboard/services">
             <span data-feather="layers"></span>
             Scope
           </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/abouts*')? 'active' : '' }}" href="/dashboard/abouts">
             <span data-feather="flag"></span>
             About Us
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/projects*')? 'active' : '' }}" href="/dashboard/projects">
             <span data-feather="folder-minus"></span>
@@ -56,12 +56,12 @@
             Client
           </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/profiles*')? 'active' : '' }}" href="/dashboard/profiles">
             <span data-feather="user"></span>
             Profile
           </a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link {{ Request::is ('dashboard/contact*')? 'active' : '' }}" href="/dashboard/contact">
             <span data-feather="book"></span>

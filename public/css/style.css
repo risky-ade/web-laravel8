@@ -214,6 +214,11 @@ nav.nav-bar{
     object-fit: cover;
   }
 
+  .card-title-proj{
+    color: black;
+    text-decoration: none;
+  }
+
 .nav-link-social{
     color: rgb(187, 187, 187);
     text-decoration: none;

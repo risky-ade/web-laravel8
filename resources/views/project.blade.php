@@ -23,8 +23,10 @@
           <div class="card h-100 card-category-item">
             <img src="/img/img1.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <a href=""><h5 class="card-title text-center">ITS,Portal Gate Automatic</h5></a>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a class="card-title-proj" href="">
+                <h5 class=" text-center" >ITS,Portal Gate Automatic</h5>
+              </a>
+              <p class="card-text">Pemasangan Portal Gate di kawasan kampus ITS Surabaya</p>
             </div>
           </div>
         </div>
@@ -32,8 +34,10 @@
           <div class="card h-100 card-category-item">
             <img src="/img/img2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">This is a short card.</p>
+              <a class="card-title-proj" href="">
+                <h5 class=" text-center" >Grand Heaven, Emergency door</h5>
+              </a>
+              <p class="card-text">Pemasangan pintu darurat di wilayah rumah duka Grand Heaven Surabaya</p>
             </div>
           </div>
         </div>
@@ -41,8 +45,10 @@
           <div class="card h-100 card-category-item">
             <img src="/img/img3.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              <a class="card-title-proj" href="">
+                <h5 class=" text-center" >Tierra Soho, draynase</h5>
+              </a>
+              <p class="card-text">Proyek saluran air di wilayah darmo harapan, Whiz</p>
             </div>
           </div>
         </div>
@@ -50,8 +56,10 @@
           <div class="card h-100 card-category-item">
             <img src="/img/img4.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a class="card-title-proj" href="">
+                <h5 class=" text-center" >PT.ISM Bogasari, Kanopi</h5>
+              </a>
+              <p class="card-text">Pemasangan Atap Kanopi di PT.ISM Bogasari Surabaya</p>
             </div>
           </div>
         </div>

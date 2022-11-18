@@ -18,27 +18,32 @@
                         <th scope="col">No</th>
                         <th scope="col">Project</th>
                         <th scope="col">Client</th>
+                        <th scope="col">Scope</th>
+                        <th scope="col">Total Image</th>
                         <th scope="col">Date</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach($clients as $client)
+                    @foreach($projects as $project)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $client->name }}</td>
-                        <td>{{ $client->description }}</td>
+                        <td>{{ $project->title }}</td>
+                        <td>{{ $project->client->name }}</td>
+                        <td>{{ $project->service->title }}</td>
+                        <td>{{ $project->images->count() }}</td>
+                        <td>{{ $project->date }}</td>
                         <td>
-                            <a href="/dashboard/clients/{{ $client->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                            <a href="/dashboard/projects/{{ $project->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
             
-                            <form action="/dashboard/clients/{{ $client->id }}" method="post" class="d-inline">
+                            <form action="/dashboard/projects/{{ $project->id }}" method="post" class="d-inline">
                               @method('delete')
                               @csrf
                               <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="trash-2"></span></button>
                             </form>
                           </td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
