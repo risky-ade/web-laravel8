@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Image;
 use App\Models\Service;
 use Illuminate\Http\Request;
+// use Image;
 
 class DashboardProjectController extends Controller
 {
@@ -43,33 +44,37 @@ class DashboardProjectController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $data = $request ->validate([
-            'title'=>'required',
-            'client_id'=>'required',
-            'service_id'=>'required',
-            'date'=>'required',
-            'alamat'=>'required',
-            'deskripsi'=>'required'
+        // dd($request);
+        // dd($request['image']);
+        // $data = $request ->validate([
+        //     'title'=>'required',
+        //     'client_id'=>'required',
+        //     'service_id'=>'required',
+        //     'tanggal'=>'required',
+        //     'alamat'=>'required',
+        //     'deskripsi'=>'required'
+        // ]);
+        $project=Project::create([
+            'title' => $request->title,
+            'client_id' => $request->client_id,
+            'service_id' => $request->service_id,
+            'tanggal' => $request->tanggal,
+            'alamat' => $request->alamat,
+            'deskripsi' => $request->deskripsi,
+
         ]);
 
-        // if($request->file('image')){
-        //     $data['image']= $request->file('image')->store('post-images');
-        // }
-
-        $new_project = Project::create($data);
-
-        if($request->hasFile('images')){
-            foreach($request->file('images') as $image)
-            {
-                $imageName = $data['title'].'-image-'.time().rand(1,1000).'.'.$image->extension();
-                $image->move(public_path('project_img'),$imageName);
-                Image::create([
-                    'project_id'=>$new_project->id,
-                    'image'=>$imageName
-                    
-                ]);
-            }
+        if($request->hasFile("images")){
+            $files=$request->file("images");
+                foreach($files as $file){
+                    $imageName=time().'_'.$file->getClientOriginalName();
+                    $file->move(\public_path("/project_img"),$imageName);
+                    Image::create([
+                        'project_id'=>$project->id,
+                        'image'=>$imageName
+    
+                    ]);
+                }           
         }
         return back()->with('Berhasil','Ditambahkan');
     }
@@ -112,7 +117,27 @@ class DashboardProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+
+
+        
+        if($request->hasFile("images")){
+            
+            $files=$request->file("images");
+                foreach($files as $file){
+                    $imageName=time().'_'.$file->getClientOriginalName();
+                    $file->move(\public_path("/project_img"),$imageName);
+                    $image = Image::where('project_id',$request->id);
+                    $image->delete();
+                    //$imanges where project_id = $proeject->id;
+                    //$images->delete;
+                    Image::create([
+                        'project_id'=>$project->id,
+                        'image'=>$imageName
+    
+                    ]);
+                }           
+        }
+
     }
 
     /**

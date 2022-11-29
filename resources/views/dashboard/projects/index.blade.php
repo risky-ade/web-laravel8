@@ -19,8 +19,10 @@
                         <th scope="col">Project</th>
                         <th scope="col">Client</th>
                         <th scope="col">Scope</th>
-                        <th scope="col">Total Image</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">Cover</th>
+                        <th scope="col">Tanggal</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Deskripsi</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -31,8 +33,10 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->client->name }}</td>
                         <td>{{ $project->service->title }}</td>
-                        <td>{{ $project->images->count() }}</td>
-                        <td>{{ $project->date }}</td>
+                        <td>{{ $project->cover }}</td>
+                        <td>{{ $project->tanggal }}</td>
+                        <td>{{ $project->deskripsi }}</td>
+                        {{-- <td>{{ $project->images->count() }}</td> --}}
                         <td>
                             <a href="/dashboard/projects/{{ $project->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
             

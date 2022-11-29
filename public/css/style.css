@@ -155,6 +155,13 @@ nav.nav-bar{
         transform: translateX(0);
         opacity: 1;
     }
+    .input-group{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    .card-groub{
+        width: 55%;
+    }
 
 
 }

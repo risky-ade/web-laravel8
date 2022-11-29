@@ -15,10 +15,10 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->foreignId('client_id');
             $table->foreignId('service_id');
-            $table->string('title');
-            $table->date('date');
+            $table->date('tanggal');
             $table->string('alamat');
             $table->string('deskripsi');
             $table->timestamps();

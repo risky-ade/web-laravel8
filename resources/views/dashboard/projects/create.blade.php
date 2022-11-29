@@ -10,8 +10,8 @@
                     <form method="post" action="/dashboard/projects" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="">Nama Proyek</label>
-                            <input type="text" class="form-control mt-2" @error('title') is-invalid @enderror id="title" name="title" required autofocus value="{{ old('title') }}" placeholder="title">
+                            <label for="title">Nama Proyek</label>
+                            <input type="text" class="form-control mt-2 @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}" placeholder="title">
                             @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -43,10 +43,22 @@
                             </select>
                           </div>
 
-                          <div class="mb-3">
-                            <label for="files" class="form-label">Project Image</label>
+                          {{-- <div class="mb-3">
+                            <label for="file" class="form-label">Project Cover Image</label>
                             <img class="img-preview img-fluid mb-3 col-sm-5">
-                            <input class="form-control @error('image') is-invalid @enderror" accept="image/*" multiple type="file"  name="image[]" onchange="previewImage()">
+                            <input class="form-control @error('image') is-invalid @enderror" accept="image/*" multiple type="file" id="cover" name="cover" onchange="previewImage()">
+
+                            @error('image')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror 
+                          </div> --}}
+
+                          <div class="mb-3">
+                            <label for="image" class="form-label">Project Image</label>
+                            <img class="img-preview img-fluid mb-3 col-sm-5">
+                            <input type="file" name="images[]" class="form-control" multiple>
 
                             @error('image')
                             <div class="invalid-feedback">
@@ -56,9 +68,9 @@
                           </div>
 
                         <div class="form-group mb-3">
-                            <label for="date">Tanggal Proyek Selesai</label>
-                            <input type="date" class="form-control mt-2">
-                            @error('date')
+                            <label for="tanggal">Tanggal Proyek Selesai</label>
+                            <input type="date" class="form-control mt-2" name="tanggal">
+                            @error('tanggal')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
