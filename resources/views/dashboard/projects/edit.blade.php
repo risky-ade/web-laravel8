@@ -4,14 +4,30 @@
         <h1 class="h2">Tambah Proyek</h1>
     </div>
 
+
+   
     <div class="container">
             <a href="/dashboard/projects" class="btn btn-primary mb-3">Kembali</a>
+                <div class="col-md-3 mb-3">
+                        @if (count($project->images)>0)
+                        <label class="mb-3 fw-bold" for="title">Gambar</label>
+                        @foreach ($project->images as $img)
+                        <form action="/dashboard/projects/deleteimage/{{ $img->id }}" method="post">
+                            <button class="badge bg-danger border-0"><span data-feather="trash-2"></button>
+                            @csrf
+                            @method('delete')
+                            </form>
+                        <img src="/project_img/{{ $img->image }}" class="img-responsive mb-3" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                        @endforeach
+                        @endif
+                </div>
                 <div class="col-md-6">
-                    <form method="post" action="/dashboard/projects" enctype="multipart/form-data">
+                    <form method="post" action="/dashboard/projects/{{ $project->id }}" enctype="multipart/form-data">
+                        @method('put')
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="title">Nama Proyek</label>
-                            <input type="text" class="form-control mt-2 @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}" placeholder="title">
+                            <label class="fw-bold" for="title">Nama Proyek</label>
+                            <input type="text" class="form-control mt-2 @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title', $project->title) }}" placeholder="title">
                             @error('title')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -19,10 +35,10 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nama Client</label>
+                            <label class="fw-bold" for="name" class="form-label">Nama Client</label>
                             <select class="form-select" name="client_id">
                               @foreach ($clients as $client)
-                                @if(old('client_id')== $client->id )
+                                @if(old('client_id',$project->client_id)== $client->id )
                                   <option value="{{ $client->id }}" selected >{{ $client->name }}</option>
                                   @else
                                   <option value="{{ $client->id }}">{{ $client->name }}</option>
@@ -31,10 +47,10 @@
                             </select>
                           </div>
                         <div class="mb-3">
-                            <label for="title" class="form-label">Scope</label>
+                            <label class="fw-bold" for="title" class="form-label">Scope</label>
                             <select class="form-select" name="service_id">
                               @foreach ($services as $service)
-                                @if(old('service_id')== $service->id )
+                                @if(old('service_id', $project->service_id)== $service->id )
                                   <option value="{{ $service->id }}" selected >{{ $service->title }}</option>
                                   @else
                                   <option value="{{ $service->id }}">{{ $service->title }}</option>
@@ -42,9 +58,9 @@
                               @endforeach
                             </select>
                           </div>
-
+                          
                           <div class="mb-3">
-                            <label for="image" class="form-label">Gambar Proyek</label>
+                            <label class="fw-bold" for="image" class="form-label">Gambar Proyek</label>
                             <img class="img-preview img-fluid mb-3 col-sm-5">
                             <input type="file" name="images[]" class="form-control" multiple>
 
@@ -56,8 +72,8 @@
                           </div>
 
                         <div class="form-group mb-3">
-                            <label for="tanggal">Tanggal Proyek Selesai</label>
-                            <input type="date" class="form-control mt-2" name="tanggal">
+                            <label class="fw-bold" for="tanggal">Tanggal Proyek Selesai</label>
+                            <input type="date" class="form-control mt-2" name="tanggal"required autofocus value="{{ old('tanggal', $project->tanggal) }}">
                             @error('tanggal')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -65,8 +81,8 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="alamat">Alamat Proyek</label>
-                            <input type="text" class="form-control mt-2" @error('alamat') is-invalid @enderror id="alamat" name="alamat" required autofocus value="{{ old('alamat') }}" placeholder="Alamat">
+                            <label class="fw-bold" for="alamat">Alamat Proyek</label>
+                            <input type="text" class="form-control mt-2" @error('alamat') is-invalid @enderror id="alamat" name="alamat" required autofocus value="{{ old('alamat', $project->alamat) }}" placeholder="Alamat">
                             @error('alamat')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -74,8 +90,8 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="deskripsi">Deskripsi</label>
-                            <input type="text" class="form-control mt-2" @error('deskripsi') is-invalid @enderror id="deskripsi" name="deskripsi" required autofocus value="{{ old('deskripsi') }}" placeholder="Deskripsi">
+                            <label class="fw-bold" for="deskripsi">Deskripsi</label>
+                            <input type="text" class="form-control mt-2" @error('deskripsi') is-invalid @enderror id="deskripsi" name="deskripsi" required autofocus value="{{ old('deskripsi', $project->deskripsi) }}" placeholder="Deskripsi">
                             @error('deskripsi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -89,7 +105,7 @@
     </div>
 
 
-    <script>
+    {{-- <script>
          function previewImage(){
             const image = document.querySelector('#image');
             const imgPreview = document.querySelector('.img-preview')
@@ -103,5 +119,5 @@
             imgPreview.src = oFREvent.target.result;
             }
         }
-    </script>
+    </script> --}}
 @endsection

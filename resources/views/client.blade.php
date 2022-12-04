@@ -30,7 +30,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            @foreach($projects as $project)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $project->tanggal }}</td>
+                        <td >{{ $project->client->name }}</td>
+                        <td>{{ $project->title }}</td>
+                        <td>{{ $project->alamat }}</td>
+                        <td>{{ $project->service->title }}</td>
+                    </tr>
+                    @endforeach
+            {{-- <tr>
               <th scope="row">1</th>
               <td>2020</td>
               <td>ITS</td>
@@ -69,7 +79,7 @@
               <td>Pintu Besi / Fire Door</td>
               <td>Waru, Sidoarjo</td>
               <td>Emergency Door</td>
-            </tr>
+            </tr> --}}
 
           </tbody>
       </table>

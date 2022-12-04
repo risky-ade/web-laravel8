@@ -66,16 +66,21 @@ Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, '
 Route::resource('/dashboard/categories', AdminCategoryController::class)-> except('show')->middleware('auth');
 Route::resource('/dashboard/sliders',DashboardSliderController::class)->middleware('auth');
 Route::resource('/dashboard/services', DashboardServiceController::class)-> except('show')->middleware('auth');
-// Route::resource('/dashboard/projects', DashboardProjectController::class)->middleware('auth');
+
 Route::resource('/dashboard/abouts', DashboardAboutController::class)->middleware('auth');
 Route::resource('/dashboard/clients', DashboardClientController::class)->middleware('auth');
 
 Route::get('/dashboard/contact', [DashboardContactController::class, 'index'])->middleware('auth');
 Route::put('/dashboard/contact/{id}', [DashboardContactController::class, 'update'])->middleware('auth');
 
-Route::get('/dashboard/projects', [DashboardProjectController::class, 'index'])->middleware('auth');
-Route::get('/dashboard/projects', [DashboardProjectController::class, 'create'])->middleware('auth');
-Route::post('/dashboard/projects', [DashboardProjectController::class, 'store'])->middleware('auth');
+Route::resource('/dashboard/projects', DashboardProjectController::class)->middleware('auth');
+// Route::get('/dashboard/projects', [DashboardProjectController::class, 'index'])->middleware('auth');
+// Route::get('/dashboard/projects/create', [DashboardProjectController::class, 'create'])->middleware('auth');
+// Route::get('/dashboard/projects/{id}', [DashboardProjectController::class, 'edit'])->middleware('auth');
+Route::delete('/dashboard/projects/deleteimage/{id}',[DashboardProjectController::class,'deleteimage'])->middleware('auth');
+// Route::post('/dashboard/projects', [DashboardProjectController::class, 'store'])->middleware('auth');
+// Route::delete('/dashboard/projects/{id}',[ProjectController::class,'destroy'])->middleware('auth');
+// Route::put('/dashboard/projects/{id}',[ProjectController::class,'update'])->middleware('auth');
 
 
 

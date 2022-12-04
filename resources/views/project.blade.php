@@ -19,18 +19,26 @@
 
     <div class="container">
     <div class="row row-cols-1 row-cols-md-4 g-4">
+      @foreach($projects as $project)
         <div class="col">
           <div class="card h-100 card-category-item">
-            <img src="/img/img1.jpg" class="card-img-top" alt="...">
+            @if($project->image)
+              <img src="/project_img/{{ $img->image }}" class="card-img" alt="">
+            @else
+              <img src="/img/blank_img.png" class="card-img-top" alt="#">
+            @endif
+
+            {{-- <img src="/img/img1.jpg" class="card-img-top" alt="..."> --}}
             <div class="card-body">
               <a class="card-title-proj" href="">
-                <h5 class=" text-center" >ITS,Portal Gate Automatic</h5>
+                <h5 class=" text-center" >{{ $project->title }}</h5>
               </a>
-              <p class="card-text">Pemasangan Portal Gate di kawasan kampus ITS Surabaya</p>
+              <p class="card-text">{{ $project->deskripsi }}</p>
             </div>
           </div>
         </div>
-        <div class="col">
+        @endforeach
+        {{-- <div class="col">
           <div class="card h-100 card-category-item">
             <img src="/img/img2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -62,7 +70,7 @@
               <p class="card-text">Pemasangan Atap Kanopi di PT.ISM Bogasari Surabaya</p>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
     <div class="d-flex justify-content-center">
