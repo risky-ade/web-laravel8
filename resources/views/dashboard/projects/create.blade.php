@@ -46,7 +46,7 @@
                           <div class="mb-3">
                             <label for="cover" class="form-label">Cover Gambar</label>
                             <img class="img-preview img-fluid mb-3 col-sm-5">
-                            <input type="file" name="cover" class="form-control">
+                            <input type="file" name="cover" class="form-control @error('cover') is-invalid @enderror"  id="cover" onchange="previewImage()">
 
                             @error('cover')
                             <div class="invalid-feedback">
@@ -103,7 +103,7 @@
 
     <script>
          function previewImage(){
-            const image = document.querySelector('#image');
+            const image = document.querySelector('#cover');
             const imgPreview = document.querySelector('.img-preview')
             
             imgPreview.style.display = 'block';

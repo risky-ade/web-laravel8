@@ -7,7 +7,7 @@
   </div>
         <ul class="nav-ul">
             <li>
-            <a class="nav-link {{ ($active === "home") ? 'active' : " " }}"  href="/home">Home</a>
+            <a class="nav-link  {{ ($active === "home") ? 'active' : " " }}"  href="/home">Home</a>
             </li>
             <li>
             <a class="nav-link {{ ($active === "about") ? 'active' : " " }}" href="/about">About</a>

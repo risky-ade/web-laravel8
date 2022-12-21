@@ -22,7 +22,7 @@ class ProjectController extends Controller
       // return view('detilProject', compact('project'));
       return view('detilProject',[
         "title" => "Detil Project",
-        "active" => 'projects',
+        "active" => 'project',
         'project'=>$project,
         "contact" => Contact::query()->first()
       ]);
