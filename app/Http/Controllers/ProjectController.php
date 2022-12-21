@@ -17,7 +17,14 @@ class ProjectController extends Controller
 
     }
 
-    public function show(){
-
+    public function show(Project $project){
+      // $project= Project::findOrFail($id);
+      // return view('detilProject', compact('project'));
+      return view('detilProject',[
+        "title" => "Detil Project",
+        "active" => 'projects',
+        'project'=>$project,
+        "contact" => Contact::query()->first()
+      ]);
     }
 }

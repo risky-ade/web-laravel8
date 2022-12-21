@@ -12,7 +12,7 @@ class Project extends Model
     // protected $guarded = [];
 
     // protected $with = ['client','service'];
-    protected $fillable=['client_id','service_id','title','tanggal', 'alamat', 'deskripsi'];
+    protected $fillable=['client_id','service_id','cover','title','tanggal', 'alamat', 'deskripsi'];
 
     public function client()
     {

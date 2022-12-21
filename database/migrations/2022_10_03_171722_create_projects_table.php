@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->foreignId('client_id');
             $table->foreignId('service_id');
+            $table->string('cover');
             $table->date('tanggal');
             $table->string('alamat');
             $table->string('deskripsi');

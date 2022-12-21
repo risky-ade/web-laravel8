@@ -44,6 +44,18 @@
                           </div>
 
                           <div class="mb-3">
+                            <label for="cover" class="form-label">Cover Gambar</label>
+                            <img class="img-preview img-fluid mb-3 col-sm-5">
+                            <input type="file" name="cover" class="form-control">
+
+                            @error('cover')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror 
+                          </div>
+
+                          <div class="mb-3">
                             <label for="image" class="form-label">Gambar Proyek</label>
                             <img class="img-preview img-fluid mb-3 col-sm-5">
                             <input type="file" name="images[]" class="form-control" multiple>

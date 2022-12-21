@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Client;
 use App\Models\Image;
 use App\Models\Service;
+use FFI;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 // use Image;
@@ -55,15 +56,23 @@ class DashboardProjectController extends Controller
         //     'alamat'=>'required',
         //     'deskripsi'=>'required'
         // ]);
-        $project=Project::create([
-            'title' => $request->title,
-            'client_id' => $request->client_id,
-            'service_id' => $request->service_id,
-            'tanggal' => $request->tanggal,
-            'alamat' => $request->alamat,
-            'deskripsi' => $request->deskripsi,
+        if($request->hasFile('cover')){
+            // $project['cover']= $request->file('cover')->store('project-images');
+            $file=$request->file('cover');
+            $imageName=time().'_'.$file->getClientOriginalName();
+            $file->move(\public_path('cover/'),$imageName);
 
-        ]);
+            $project=Project::create([
+                'title' => $request->title,
+                'client_id' => $request->client_id,
+                'service_id' => $request->service_id,
+                'cover' => $imageName,
+                'tanggal' => $request->tanggal,
+                'alamat' => $request->alamat,
+                'deskripsi' => $request->deskripsi,
+                
+            ]);
+        }
 
         if($request->hasFile("images")){
             $files=$request->file("images");
@@ -124,6 +133,15 @@ class DashboardProjectController extends Controller
     public function update(Request $request,$id)
     {
         $project=Project::findOrFail($id);
+        if($request->hasFile("cover")){
+            if(File:: exists("cover/".$project->cover)){
+                File::delete("cover/".$project->cover);
+            }
+            $file=$request->file("cover");
+            $project->cover=time()."_".$file->getClientOriginalName();
+            $file->move(\public_path("/cover"),$project->cover);
+            $request['cover']=$project->cover;
+        }
          $project->update([
             'title' => $request->title,
             'client_id' => $request->client_id,
@@ -131,6 +149,7 @@ class DashboardProjectController extends Controller
             'tanggal' => $request->tanggal,
             'alamat' => $request->alamat,
             'deskripsi' => $request->deskripsi,
+            'cover'=>$project->cover,
 
         ]);
         
@@ -182,6 +201,10 @@ class DashboardProjectController extends Controller
         // Project::destroy($project->id);
         $project=Project::findOrFail($id);
 
+        if(File::exists("cover/".$project->cover)){
+            File::delete("cover/".$project->cover);
+        }
+
          $images=Image::where("project_id",$project->id)->get();
          foreach($images as $image){
          if (File::exists("project_img/".$image->image)) {
@@ -200,5 +223,12 @@ class DashboardProjectController extends Controller
 
        Image::find($id)->delete();
        return back();
+   }
+   public function deletecover($id){
+    $cover=Project::findOrFail($id)->cover;
+    if(File::exists("cover/".$cover)){
+        File::delete("cover/".$cover);
+    }
+    return back();
    }
 }

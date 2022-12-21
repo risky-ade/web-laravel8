@@ -43,7 +43,10 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/',[HomeController::class, 'index']);
 Route::get('/home',[HomeController::class, 'index']);
 Route::get('/about',[AboutController::class, 'index']);
+
 Route::get('/project',[ProjectController::class, 'index']);
+Route::get('/detilProject/{project:id}',[ProjectController::class, 'show']);
+
 Route::get('/client',[ClientController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);               // sebelumnya ('/blog', function ()
@@ -78,6 +81,7 @@ Route::resource('/dashboard/projects', DashboardProjectController::class)->middl
 // Route::get('/dashboard/projects/create', [DashboardProjectController::class, 'create'])->middleware('auth');
 // Route::get('/dashboard/projects/{id}', [DashboardProjectController::class, 'edit'])->middleware('auth');
 Route::delete('/dashboard/projects/deleteimage/{id}',[DashboardProjectController::class,'deleteimage'])->middleware('auth');
+Route::delete('/dashboard/projects/deletecover/{id}',[DashboardProjectController::class,'deletecover'])->middleware('auth');
 // Route::post('/dashboard/projects', [DashboardProjectController::class, 'store'])->middleware('auth');
 // Route::delete('/dashboard/projects/{id}',[ProjectController::class,'destroy'])->middleware('auth');
 // Route::put('/dashboard/projects/{id}',[ProjectController::class,'update'])->middleware('auth');

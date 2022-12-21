@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Tambah Proyek</h1>
+        <h1 class="h2">Edit Proyek</h1>
     </div>
 
 
@@ -9,6 +9,15 @@
     <div class="container">
             <a href="/dashboard/projects" class="btn btn-primary mb-3">Kembali</a>
                 <div class="col-md-3 mb-3">
+                    <label class="mb-3 fw-bold" for="title">Cover</label>
+                    {{-- <form action="/dashboard/projects/deletecover/{{ $project->id }}" method="post">
+                        <button class="badge bg-danger border-0"><span data-feather="trash-2"></button>
+                            @csrf
+                            @method('delete')
+                    </form> --}}
+                    <img src="/cover/{{ $project->cover }}" class="img-responsive mb-3" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                    <br>
+
                         @if (count($project->images)>0)
                         <label class="mb-3 fw-bold" for="title">Gambar</label>
                         @foreach ($project->images as $img)
@@ -58,6 +67,18 @@
                               @endforeach
                             </select>
                           </div>
+
+                          <div class="mb-3">
+                            <label for="cover" class="form-label">Cover Gambar</label>
+                            <img class="img-preview img-fluid mb-3 col-sm-5">
+                            <input type="file" name="cover" class="form-control">
+
+                            @error('cover')
+                            <div class="invalid-feedback">
+                              {{ $message }}
+                            </div>
+                            @enderror 
+                          </div>
                           
                           <div class="mb-3">
                             <label class="fw-bold" for="image" class="form-label">Gambar Proyek</label>
@@ -104,20 +125,4 @@
             </div>
     </div>
 
-
-    {{-- <script>
-         function previewImage(){
-            const image = document.querySelector('#image');
-            const imgPreview = document.querySelector('.img-preview')
-            
-            imgPreview.style.display = 'block';
-
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
-
-            oFReader.onload = function(oFREvent){
-            imgPreview.src = oFREvent.target.result;
-            }
-        }
-    </script> --}}
 @endsection

@@ -22,6 +22,7 @@
                         <th scope="col">Tanggal</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Deskripsi</th>
+                        <th scope="col">cover</th>
                         <th scope="col">Total Gambar</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -36,6 +37,13 @@
                         <td>{{ $project->tanggal }}</td>
                         <td>{{ $project->alamat }}</td>
                         <td>{{ $project->deskripsi }}</td>
+                        <td>
+                            @if($project->cover)
+                            <img src="/cover/{{ $project->cover }}" class="img-fluid" width="90" alt="">
+                          @else
+                            <img src="/img/blank_img.png" class="img-fluid" width="90" alt="#">
+                          @endif
+                        </td>
                         <td>{{ $project->images->count() }}</td>
                         <td>
                             <a href="/dashboard/projects/{{ $project->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>

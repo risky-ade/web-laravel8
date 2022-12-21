@@ -18,19 +18,19 @@
     </div>
 
     <div class="container">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4 ">
       @foreach($projects as $project)
-        <div class="col">
-          <div class="card h-100 card-category-item">
-            @if($project->image)
-              <img src="/project_img/{{ $img->image }}" class="card-img" alt="">
+        <div class="col ">
+          <div class="card h-100 card-category-item shadow-sm">
+            @if($project->cover)
+              <img src="cover/{{ $project->cover }}" class="card-img">
             @else
               <img src="/img/blank_img.png" class="card-img-top" alt="#">
             @endif
 
             {{-- <img src="/img/img1.jpg" class="card-img-top" alt="..."> --}}
-            <div class="card-body">
-              <a class="card-title-proj" href="">
+            <div class="card-body ">
+              <a class="card-title-proj" href="/detilProject/{{ $project->id }}">
                 <h5 class=" text-center" >{{ $project->title }}</h5>
               </a>
               <p class="card-text">{{ $project->deskripsi }}</p>
