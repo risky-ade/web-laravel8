@@ -24,34 +24,34 @@
 
             </div>
             <div class="col-md-3 mb-3">
-                <h3 class="fw-bold">Useful Links</h3>
+                <h3 class="fw-bold fs-4">Useful Links</h3>
                 <ul class="list-group list-unstyled">
                     <li class="list-item mb-2">
-                        <a href="/" class="list-link  {{ ($active === "home") ? 'active' : " " }} text-decoration-none">
+                        <a href="/" class="list-link fs-6  {{ ($active === "home") ? 'active' : " " }} text-decoration-none">
                             <i class="fa fa-chevron-right"></i>
                             Home
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/about" class="list-link  {{ ($active === "about") ? 'active' : " " }} text-decoration-none">
+                        <a href="/about" class="list-link fs-6  {{ ($active === "about") ? 'active' : " " }} text-decoration-none">
                             <i class="fa fa-chevron-right"></i>
                             About Us
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/project" class="list-link  {{ ($active === "project") ? 'active' : " " }} text-decoration-none">
+                        <a href="/project" class="list-link fs-6  {{ ($active === "project") ? 'active' : " " }} text-decoration-none">
                             <i class="fa fa-chevron-right"></i>
                             Project
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/client" class="list-link  {{ ($active === "client") ? 'active' : " " }} text-decoration-none">
+                        <a href="/client" class="list-link fs-6  {{ ($active === "client") ? 'active' : " " }} text-decoration-none">
                             <i class="fa fa-chevron-right"></i>
                             Client
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a href="/posts" class="list-link  {{ ($active === "posts") ? 'active' : " " }} text-decoration-none">
+                        <a href="/posts" class="list-link fs-6  {{ ($active === "posts") ? 'active' : " " }} text-decoration-none">
                             <i class="fa fa-chevron-right"></i>
                             Article
                         </a>
@@ -59,30 +59,30 @@
                 </ul>
             </div>
             
-            <div class="col-md-5">
-                <h3 class="fw-bold pb-2">Head Office Surabaya</h3>
+            <div class="col-md-4">
+                <h3 class="fw-bold pb-2 fs-4">Head Office Surabaya</h3>
                 
                 <ul class="list-group list-unstyled mt-2">
                     <li class="list-item mb-2">
-                        <a class="list-link text-decoration-none fs-5">
+                        <a class="list-link text-decoration-none fs-6">
                             <i class="fa-solid fa-location-dot px-2"></i>
                             {{$contact->alamat}}
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a class="list-link text-decoration-none fs-5">
+                        <a class="list-link text-decoration-none fs-6">
                             <i class="fa-solid fa-phone px-2"></i>
                             {{ $contact->telepon }}
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a  class="list-link text-decoration-none fs-5">
+                        <a  class="list-link text-decoration-none fs-6">
                             <i class="fa-solid fa-mobile-screen-button px-2"></i>
                             {{ $contact->nomorhp }}
                         </a>
                     </li>
                     <li class="list-item mb-2">
-                        <a  class="list-link text-decoration-none fs-5">
+                        <a  class="list-link text-decoration-none fs-6">
                             <i class="fa-solid fa-envelope px-2"></i>
                             {{  $contact->email  }}
                         </a>
@@ -90,6 +90,8 @@
                 </ul>
       
             </div>
+
+           
         </div>
         
         <div class="copyright-content">

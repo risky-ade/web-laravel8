@@ -18,12 +18,20 @@
             <li>
                 <a class="nav-link {{ ($active === "client") ? 'active' : " " }}" href="/client">Client</a>
             </li>
-            <li>
-            <a class="nav-link {{ ($active === "posts") ? 'active' : " " }}" href="/posts">Article</a>
+
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="nav-link dropbtn">
+                Article
+              </a>
+            <div class="dropdown-content" aria-labelledby="navbarDropdown">
+              
+                <a class="nav-link{{ ($active === "posts") ? 'active' : " " }}" href="/posts">Article</a>
+                <a class="nav-link{{ ($active === "categories") ? 'active' : " " }}" href="/categories">Categories</a>
+            </div>
             </li>
             <li>
-            <a class="nav-link {{ ($active === "categories") ? 'active' : " " }}" href="/categories">Categories</a>
-            </li>
+              <a class="nav-link {{ ($active === "contactus") ? 'active' : " " }}" href="/contactus">Contact</a>
+          </li>
         </ul>
 
         <div class="menu-toggle">

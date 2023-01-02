@@ -13,6 +13,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardAboutController;
 use App\Http\Controllers\DashboardClientController;
@@ -86,7 +87,9 @@ Route::delete('/dashboard/projects/deletecover/{id}',[DashboardProjectController
 // Route::delete('/dashboard/projects/{id}',[ProjectController::class,'destroy'])->middleware('auth');
 // Route::put('/dashboard/projects/{id}',[ProjectController::class,'update'])->middleware('auth');
 
+Route::get('/contactus', [ContactUsController::class, 'index']);
 
+Route::post('/contactus', [ContactUsController::class, 'store'])->name('contact.save');
 
 // Route::get('/categories/{category:slug}', function (Category $category) {
 //     return view('posts', [
